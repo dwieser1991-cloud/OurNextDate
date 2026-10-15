@@ -30,7 +30,7 @@ function render(){
  let h="";
  if(step===0){
   h=`<div class="big">💌</div><h1>Hey, beautiful…</h1>
-  <p>I have a little question for you.<br>Would you do me the honour of going on a date with me?</p>
+  <p>I have a little question for you.<br>Would you do me the honor of going on a date with me?</p>
   <div class="row"><button class="btn" id="yes">Yes, of course! 💕</button><button class="btn" id="no" style="background:var(--line);color:var(--soft);box-shadow:none">No</button></div>
   <p style="font-size:.8rem;margin-top:18px">(psst… the “No” button is shy)</p>`;
  }else if(step===1){
