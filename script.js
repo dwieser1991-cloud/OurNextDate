@@ -1,3 +1,4 @@
+// ✏️ Replace with your email address:
 const HIS_EMAIL = "d.wieser1991@gmail.com";
 const HER_NAME_FALLBACK = "Darling";
 
@@ -17,7 +18,7 @@ for (let i = 0; i < 18; i++) {
     s.style.animationDuration = (9 + Math.random() * 10) + "s"; s.style.animationDelay = (-Math.random() * 15) + "s"; hs.appendChild(s)
 }
 
-function days() { const a = [], t = new Date(); for (let i = 1; i <= 28; i++) { const d = new Date(t); d.setDate(t.getDate() + i); a.push(d) } return a }
+function days() { const a = [], t = new Date(); for (let i = 1; i <= 35; i++) { const d = new Date(t); d.setDate(t.getDate() + i); a.push(d) } return a }
 const fmt = d => d.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 const progress = () => `<div class="bar"><i style="width:${step / 5 * 100}%"></i></div>`;
 
@@ -84,9 +85,11 @@ function send() {
     const body = message();
     const url = `mailto:${HIS_EMAIL}?subject=${encodeURIComponent("💕 Our date is booked!")}&body=${encodeURIComponent(body)}`;
     const fb = document.getElementById("fb");
-    fb.innerHTML = `<p style="font-size:.9rem">If your mail app didn't open, <a href="${url}" style="color:var(--rose)">tap here</a> or copy the text and send it to me 💕<br><button class="ghost" id="cp">📋 Copy confirmation</button></p>`;
+    const wa = "https://wa.me/?text=" + encodeURIComponent(body);
+    const st = "display:inline-block;text-decoration:none;font-size:.95rem;padding:11px 20px;margin:4px";
+    fb.innerHTML = `<p style="font-size:.9rem">Choose how to send it to me 💕</p><div class="row"><a class="btn" style="${st}" href="${url}" target="_blank" rel="noopener">✉️ Email</a><a class="btn" style="${st}" href="${wa}" target="_blank" rel="noopener">💬 WhatsApp</a></div><button class="ghost" id="cp">📋 Copy confirmation</button>`;
     document.getElementById("cp").onclick = async () => { try { await navigator.clipboard.writeText(body); document.getElementById("cp").textContent = "✅ Copied!" } catch (e) { prompt("Copy this:", body) } };
-    try { window.location.href = url } catch (e) { }
+    try { if (navigator.share) navigator.share({ title: "💕 Our date", text: body }).catch(() => { }) } catch (e) { }
     burst();
 }
 function burst() {
