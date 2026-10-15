@@ -2,7 +2,7 @@
 
 A small, romantic, single-page website that lets my partner pick - in a playful way - when and where our next date will take place.
 
-🔗 Live page: **https://claude.ai/artifact/JTxkvxM46jJNTAex2m3SiK**
+🔗 Live page: https://dwieser1991-cloud.github.io/OurNextDate
 
 ✨ Features
 💌 Sweet intro with a "shy" No button that runs away
